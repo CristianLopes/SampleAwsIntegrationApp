@@ -1,3 +1,4 @@
 
 DynamoDbApp/obj/*
 DynamoDbApp/bin/*
+.vs/*

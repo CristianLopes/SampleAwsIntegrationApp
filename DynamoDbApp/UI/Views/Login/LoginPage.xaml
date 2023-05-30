@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DynamoDbApp.UI.Views.Login.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout Padding="32" Spacing="20">
+
+        <HorizontalStackLayout>
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="150"
+                HorizontalOptions="Center" 
+                />
+
+            <Label Text="+"
+                   VerticalOptions="Center"
+                   FontSize="100"
+                   />
+
+            <Image
+                Source="dynamo_db.png"
+                SemanticProperties.Description="database dynamoDB Icon"
+                HeightRequest="150"
+                HorizontalOptions="Center" />
+        </HorizontalStackLayout>
+
+
+        <Label
+                Text="Hi Guys, today we will learn how to connect to DynamoDB"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="Medium"
+                HorizontalOptions="Center" />
+        
+        <Entry Text="{Binding UserName}"
+               Placeholder="UserName:"
+               />
+
+        <Entry Text="{Binding Password}"
+               Placeholder="Password"
+               IsPassword="True"
+               />
+
+        <Button Text="Login"
+                Command="{Binding LoginCommand}"
+                />
+
+
+        <Button Text="If you don't have account, click here" 
+                Command="{Binding GoToRegisterCommand}"
+                BackgroundColor="Transparent"
+                TextColor="{StaticResource Primary}"
+                BorderColor="{StaticResource Primary}"
+                BorderWidth="1"
+                />
+
+
+    </VerticalStackLayout>
+</ContentPage>

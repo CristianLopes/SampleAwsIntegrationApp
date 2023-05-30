@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DynamoDbApp.UI.Views.Register.RegisterPage"
+             Title="RegisterPage">
+    <VerticalStackLayout Padding="32" Spacing="20">
+
+        <Image
+                Source="dynamo_db.png"
+                SemanticProperties.Description="database dynamoDB Icon"
+                HeightRequest="150"
+                HorizontalOptions="Center" />
+
+        <Label
+                Text="These information will persisted at DynamoDB"
+                SemanticProperties.HeadingLevel="Level1"
+                HorizontalOptions="Center" 
+            />
+
+        <Label Text="Please fill the informations to create new account"
+               />
+        <Entry Text="{Binding UserName}"
+               Placeholder="UserName:"
+               />
+
+        <Entry Text="{Binding Password}"
+               Placeholder="Password"
+               IsPassword="True"
+               />
+
+        <Entry Text="{Binding UserId}"
+               Placeholder="UserId"
+               />
+
+        <Button Text="Create User"
+                Command="{Binding RegisterCommand}"
+                />
+
+
+        <Button Text="I've already an account!" 
+                Command="{Binding GoToLoginCommand}"
+                BackgroundColor="Transparent"
+                TextColor="{StaticResource Primary}"
+                BorderColor="{StaticResource Primary}"
+                BorderWidth="1"
+                />
+    </VerticalStackLayout>
+</ContentPage>
