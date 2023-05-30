@@ -27,7 +27,6 @@ namespace DynamoDbApp.UI.Views.Register
             var userRegister = new Repositories.Entities.UserRegisterDb
             {
                 UserId = UserId,
-                UserName = UserName,
                 Password = Password,
                 PK = "#USERS#",
                 SK = UserName
