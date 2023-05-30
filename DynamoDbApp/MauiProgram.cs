@@ -27,13 +27,17 @@ namespace DynamoDbApp
 #if DEBUG
             builder.Logging.AddDebug();
 #endif
+            //Setup DynamoDB Client
             var region = RegionEndpoint.USEast1;
             var credentials = new BasicAWSCredentials(
                         accessKey: "INSERT YOUR ACCESS KEY HERE",
                         secretKey: "INSERT YOUR SECRET KEY HERE");
             builder.Services.AddSingleton<IAmazonDynamoDB>(_ => new AmazonDynamoDBClient(credentials, region));
+           
+            //Regitering the repository
             builder.Services.AddSingleton<IUserRepository, UserRepository>();
             
+            //Register ViewModels and Pages
             builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<LoginViewModel>();
             builder.Services.AddTransient<RegisterPage>();

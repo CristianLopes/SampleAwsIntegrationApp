@@ -34,9 +34,8 @@ namespace DynamoDbApp.UI.Views.Register
             };
             try
             {
-                //how we don't have relationships in DynamoDB we need to check if the user exists in some way
-                var result = await _userRepository.Login(UserName, Password);
-                if (result is not null)
+                var userExists = await _userRepository.UserExists(UserName);
+                if (userExists)
                 {
                     await Shell.Current.DisplayAlert("APP", "User already exists", "OK");
                     return;

@@ -14,6 +14,12 @@ namespace DynamoDbApp.Repositories
             _context = new DynamoDBContext(dynamoDbClient);
         }
 
+        public async Task<bool> UserExists(string userName)
+        {
+            var user = await _context.LoadAsync<UserLoginDb>($"#USERS#", $"{userName}");
+            return user is not null;
+        }
+
         public async Task<UserLoginDb> Login(string userName, string password)
         {
             var config = new DynamoDBOperationConfig
